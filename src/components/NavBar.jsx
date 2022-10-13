@@ -1,38 +1,30 @@
-import { CardWidget } from "./CardWidget";
-import { ItemListConteiner } from "./ItemListConteiner";
+import '../css/NavBar.css';
+
+import Container from 'react-bootstrap/Container';
+import {Link} from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navbar from 'react-bootstrap/Navbar';
 
 export const NavBar = () => {
     return (
-    <section>
-        <nav class="navbar navbar-expand-lg bg-warning">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">SIDECOM</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Polos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Casacas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pantalones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gorros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Medias</a>
-        </li>
-      </ul>
-    </div>
-    <CardWidget/>
-  </div>
-</nav>
-<ItemListConteiner nombre={'El componente está en construcción'}/>
-</section>
+    <>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Link to='/'>Sidecom</Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Link to='/'>Inicio</Link>
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item><Link to='/categorias/oficina'>Oficina</Link></NavDropdown.Item>
+              <NavDropdown.Item><Link to='/categorias/limpieza'>Limpieza</Link></NavDropdown.Item>
+            </NavDropdown>
+            <Link to='/carrito'>Carrito</Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    </>
     );
 };
