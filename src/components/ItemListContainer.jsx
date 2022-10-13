@@ -1,3 +1,5 @@
+import '../CSS/ItemListContainer.css'
+
 import React, { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -28,21 +30,22 @@ const ItemListContainer = () => {
 
   return (
     <>
+    <div className='flex'>
     {
       loading ? <div>Cargando...</div> :
     
     items.map(item => <div
                       key={item.id}
-                      style={{marginLeft:100}}
-                      className="col-md-3">
+                      style={{margin:50}}
+                      className="col-md-3 flex">
                         <Link to={`/item/${item.id}`}>
                         <div className="card" >
                         <div className="card-header">
                           {`${item.nombre} - ${item.categoria}`}
                           </div>
                           <div className="card-body">
-                          <img src={item.foto} className="card-img-top" alt="" />
-                            {item.precio}
+                          <img src={item.foto} className="card-img-top" alt="" style={{width:400}}/>
+                            Precio: S/ {item.precio}
                           </div>
                           <div className="card-footer">
                             <button className="btn btn-primary">Detalle del Producto</button>
@@ -51,6 +54,7 @@ const ItemListContainer = () => {
                           </Link>
 
     </div>)}
+    </div>
     </>
   )
 }

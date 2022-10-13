@@ -1,4 +1,4 @@
-import '../css/NavBar.css';
+import '../CSS/NavBar.css';
 
 import Container from 'react-bootstrap/Container';
 import {Link} from 'react-router-dom';
@@ -11,18 +11,17 @@ export const NavBar = () => {
     <>
     <Navbar bg="dark" variant="dark">
       <Container>
+      <Navbar.Collapse id="basic-navbar-nav">
         <Link to='/'>Sidecom</Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to='/'>Inicio</Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item><Link to='/categorias/oficina'>Oficina</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link to='/categorias/limpieza'>Limpieza</Link></NavDropdown.Item>
+              <NavDropdown.Item><Link class="Categoria" to='/categorias/oficina'>Oficina</Link></NavDropdown.Item>
+              <NavDropdown.Item><Link class="Categoria" to='/categorias/limpieza'>Limpieza</Link></NavDropdown.Item>
             </NavDropdown>
             <Link to='/carrito'>Carrito</Link>
           </Nav>
-        </Navbar.Collapse>
+          </Navbar.Collapse>
       </Container>
     </Navbar>
     </>
