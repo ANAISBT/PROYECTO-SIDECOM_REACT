@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         gFetch()
-        .then(resp => setItem(resp.find(item => item.id === ItemId)))
+        .then(resp => setItem(resp.find(item => item.id === parseInt(ItemId))))
         .catch(err => console.log(err))
         .finally(() => setLoading(false))
     }, [ItemId])

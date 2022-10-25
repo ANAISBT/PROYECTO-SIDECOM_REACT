@@ -1,20 +1,16 @@
 import '../CSS/ItemListContainer.css'
 
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom'
 import React from 'react'
 
-const ItemDetail = ({item}) => {
+const Item = (item) => {
 
   const {id, nombre, precio, foto, categoria} = item;
 
-
-
-  return (
-    <div className='flex'>
-    <div
-                      key={id}
-                      style={{margin:50}}
-                      className="col-md-3 flex">
+  return <>
+  
+                        <Link to={`/item/${id}`}>
                         <div className="card" >
                         <div className="card-header">
                           {`${nombre} - ${categoria}`}
@@ -23,11 +19,12 @@ const ItemDetail = ({item}) => {
                           <img src={foto} className="card-img-top" alt="" style={{width:400}}/>
                             Precio: S/ {precio}
                           </div>
-                          <ItemCount />
+                          <div className="card-footer">
+                            <button className="btn btn-primary">Detalle del Producto</button>
+                          </div>
                         </div>
-    </div>
-    </div>
-  )
+                          </Link>
+  </>
 }
 
-export default ItemDetail
+export default Item
