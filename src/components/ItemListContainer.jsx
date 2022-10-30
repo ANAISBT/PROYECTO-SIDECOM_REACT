@@ -3,6 +3,7 @@ import '../CSS/ItemListContainer.css'
 import React, { useEffect, useState } from 'react'
 
 import Item from './Item'
+import ItemList from './ItemList'
 import { Link } from 'react-router-dom'
 import { gFetch } from '../helpers/gFetch'
 import { useParams } from 'react-router-dom'
@@ -35,13 +36,8 @@ const ItemListContainer = () => {
     {
       loading ? <div>Cargando...</div> :
     
-    items.map(item => <div
-                      key={item.id}
-                      style={{margin:50}}
-                      className="col-md-3 flex">
-                          <Item {...item} />
-
-    </div>)}
+      <ItemList productos={items} />
+    }
     </div>
     </>
   )

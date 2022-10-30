@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-const Item = (item) => {
+const Item = ({item}) => {
 
   const {id, nombre, precio, foto, categoria} = item;
 

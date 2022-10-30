@@ -1,6 +1,6 @@
 const products = [
     {
-        id: 1,
+        id: '1',
         nombre: 'Lapicero Pilot',
         precio: 5,
         stock: 10,
@@ -9,7 +9,7 @@ const products = [
 
     },
     {
-        id: 2,
+        id: '2',
         nombre: 'Lapicero Faber Castell',
         precio: 1,
         stock: 10,
@@ -18,7 +18,7 @@ const products = [
 
     },
     {
-        id: 3,
+        id: '3',
         nombre: 'Silla Gamer',
         precio: 500,
         stock: 10,
@@ -27,7 +27,7 @@ const products = [
 
     },
     {
-        id: 4,
+        id: '4',
         nombre: 'Escoba',
         precio: 8,
         stock: 10,
@@ -36,7 +36,7 @@ const products = [
 
     },
     {
-        id: 5,
+        id: '5',
         nombre: 'Recogedor',
         precio: 10,
         stock: 10,
@@ -45,7 +45,7 @@ const products = [
 
     },
     {
-        id: 6,
+        id: '6',
         nombre: 'Trapiador',
         precio: 15,
         stock: 10,
