@@ -1,56 +1,56 @@
 const products = [
     {
         id: '1',
-        nombre: 'Lapicero Pilot',
-        precio: 5,
+        nombre: 'Plumon N°45 X 20 Faber-Castell',
+        precio: 1.40,
         stock: 10,
         categoria: 'oficina',
-        foto:'https://images.utilex.pe/000979/450x450/lapicero-bps-azul-x-1-unidad-pilot-CYWTLUIE4HCHE.png'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/p/l/plumon-fab-45-x-20-555324-350-default-1.jpg'
 
     },
     {
         id: '2',
-        nombre: 'Lapicero Faber Castell',
-        precio: 1,
+        nombre: 'File Manilla A4 Grafipapel',
+        precio: 10.20,
         stock: 10,
         categoria: 'oficina',
-        foto:'https://images.utilex.pe/037210/450x450/lapicero-trilux-035-azul-x-1-unidad-faber-castell-CYXB6GBF4HWC6.png'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/f/i/file-manila-a4-grafip-916-default-1.jpg'
 
     },
     {
         id: '3',
-        nombre: 'Silla Gamer',
-        precio: 500,
+        nombre: 'Tijera 7 1/2 Pulgadas WEX',
+        precio: 11.60,
         stock: 10,
         categoria: 'oficina',
-        foto:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLjyd88t3wrB-gPkmVwCdPaJtvdA18vP8om3McG9OlFWFo2ZzNhzrwPPYcNBgUJGh942A&usqp=CAU'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/t/i/tijera-7-12-pulgadas-1869-default-1.jpg'
 
     },
     {
         id: '4',
-        nombre: 'Escoba',
-        precio: 8,
-        stock: 10,
+        nombre: 'Robot LimpiaCristales Windroid 980',
+        precio: 2499,
+        stock: 15,
         categoria: 'limpieza',
-        foto:'https://promart.vteximg.com.br/arquivos/ids/569873-1000-1000/106667.jpg?v=637401115008330000'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/r/o/robot-limipacristales-windroid-980-connected-48291-default-1.jpg'
 
     },
     {
         id: '5',
-        nombre: 'Recogedor',
-        precio: 10,
-        stock: 10,
+        nombre: 'Alcohol en Gel x 1 Gln Nex',
+        precio: 66,
+        stock: 20,
         categoria: 'limpieza',
-        foto:'https://promart.vteximg.com.br/arquivos/ids/569900-1000-1000/10721_1.jpg?v=637401115242570000'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/a/l/alcohol-en-gel-x-1-gln-nex-46786-default-1.jpg'
 
     },
     {
         id: '6',
-        nombre: 'Trapiador',
-        precio: 15,
-        stock: 10,
+        nombre: 'Limpiatodo Violeta x 1 Gln Daryza',
+        precio: 17.90,
+        stock: 5,
         categoria: 'limpieza',
-        foto:'https://promart.vteximg.com.br/arquivos/ids/3099080-444-444/139954.jpg?v=637734576134030000'
+        foto:'https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/240x300/productos/i/l/i/limpiatodo-violeta-x-1gln-daryza-31988-default-1.png'
 
     }
 ];

@@ -15,7 +15,7 @@ const Carrito = () => {
 
       <ul>
         {cartList.map((item) => 
-        <li>{item.nombre} Cantidad: {item.cantidad}</li>
+        <li>{item.Nombre} Cantidad: {item.cantidad}</li>
         
         )}
       </ul>

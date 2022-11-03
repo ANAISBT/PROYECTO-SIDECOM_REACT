@@ -11,7 +11,7 @@ import { useContext } from 'react';
 
 const ItemDetail = ({item}) => {
 
-  const {id, nombre, precio, foto, categoria,stock} = item;
+  const {id, Nombre, Precio, Foto, Categoria,Stock} = item;
 const [isCount, setIsCount] = useState(true);
   const {addItem,cartList}= useCartContext();
 
@@ -30,11 +30,11 @@ const [isCount, setIsCount] = useState(true);
          className="col-md-3 flex">
          <div className="card" >
           <div className="card-header">
-            {`${nombre} - ${categoria}`}
+            {`${Nombre} - ${Categoria}`}
           </div>
           <div className="card-body">
-          <img src={foto} className="card-img-top" alt="" style={{width:400}}/>
-           Precio: S/ {precio}
+          <img src={Foto} className="card-img-top" alt="" style={{width:400}}/>
+           Precio: S/ {Precio}
            {/* <button onClick={()=>onAdd()}>Agregar al carrito</button> */}
           </div>
           </div>
@@ -42,7 +42,7 @@ const [isCount, setIsCount] = useState(true);
       </div>
       <div className='col-6'>
         {isCount ?
-      <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
+      <ItemCount stock={Stock} initial={1} onAdd={onAdd}/>
       :
       <div>
         
