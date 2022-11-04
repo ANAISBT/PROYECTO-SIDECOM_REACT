@@ -3,11 +3,13 @@ import{useEffect, useState} from 'react'
 
 import Input from './Input'
 import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom'
 import React from 'react'
 import { useCartContext } from '../context/CartContext'
 
 export default function Carrito () {
 
+  const [isId, setIsId] = useState('')
 const [dataForm, setDataForm] = useState({ 
    name: '', 
    email: '', 
@@ -31,7 +33,8 @@ const [dataForm, setDataForm] = useState({
       }
       const db= getFirestore();
       const orders = collection(db,'orders');
-      addDoc(orders,orden).then(resp => console.log(resp))
+      addDoc(orders,orden)
+      .then(resp => setIsId(resp.id))
       .catch(err => console.log(err))
       .finally(() => vaciarCarrito())
 
@@ -59,6 +62,14 @@ const [dataForm, setDataForm] = useState({
     return (
         <div>
             <h1>Carrito</h1>
+            {isId ? <h2>Orden generada con exito, su id es: {isId}</h2> : ''}
+            {cartList.length === 0 ? 
+            <div>
+            <h2>No hay productos en el carrito</h2> 
+            <Link to='/'><button>Volver al inicio</button></Link>
+            </div>
+            :
+            <>
             <div>
                 {cartList.map((item) => {
                     return (
@@ -66,6 +77,7 @@ const [dataForm, setDataForm] = useState({
                             <h3>{item.Nombre}</h3>
                             <p>{item.Precio}</p>
                             <p>{item.cantidad}</p>
+                            <button onClick={() => removeItem(item.id)}>X</button>
                         </div>
                         
                     )
@@ -98,6 +110,8 @@ const [dataForm, setDataForm] = useState({
 
               <button type='submit'>Generar Orden</button>
             </form>
+            </>
+            }
         </div>
     )
 }

@@ -10,12 +10,18 @@ const CartContextProvider = ({children}) => {
 const [cartList, setCartList] = useState([])
 
 const addItem = (producto) => {
-
-    setCartList([...cartList,producto]);
+     const index = cartList.findIndex((item) => item.id === producto.id);
+    
+    if(index===-1){
+     setCartList([...cartList,producto]);
 }
+else{
+    const newCartList = [...cartList];
+    newCartList[index].cantidad += producto.cantidad;
+    setCartList([...newCartList]);
 
-const isInCart = (id) => {
-return cartList.some(item => item.id === id);}
+}
+}
 
 const vaciarCarrito = () => {
     setCartList([]);
@@ -24,6 +30,7 @@ const vaciarCarrito = () => {
 const removeItem= (id) => {
     setCartList( cartList.filter(item => item.id !== id) )
 }
+
 
 
 const precioTotal = () => {

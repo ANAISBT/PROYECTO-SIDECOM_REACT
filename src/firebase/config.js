@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDyRisvbB01mvGanC70q3G1KnPYhj1Ygyg",
+  apiKey: import.meta.env.APIKEY,
   authDomain: "sidecom-react.firebaseapp.com",
   projectId: "sidecom-react",
   storageBucket: "sidecom-react.appspot.com",
