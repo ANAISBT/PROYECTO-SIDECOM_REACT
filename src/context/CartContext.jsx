@@ -21,11 +21,22 @@ const vaciarCarrito = () => {
     setCartList([]);
 }
 
+const removeItem= (id) => {
+    setCartList( cartList.filter(item => item.id !== id) )
+}
+
+
+const precioTotal = () => {
+    return parseInt(cartList.reduce((acum, prod) => acum + (prod.cantidad* prod.Precio) , 0))
+}
+
   return (
         <CartContext.Provider value={{
             cartList,
             addItem,
-            vaciarCarrito
+            vaciarCarrito,
+            precioTotal,
+            removeItem
         }}>
             {children}
         </CartContext.Provider>
