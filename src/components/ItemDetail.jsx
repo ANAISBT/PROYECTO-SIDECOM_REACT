@@ -6,18 +6,18 @@ import ItemCount from './ItemCount';
 import {Link} from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({producto}) => {
 
-  const {id, Nombre, Precio, Foto, Categoria,Stock} = item;
-const [isCount, setIsCount] = useState(true);
-  const {addItem,cartList}= useCartContext();
+  const {id, Nombre, Precio, Foto, Categoria,Stock} = producto;
+const [Aumento, setAumento] = useState(true);
+  const {AgregarProducto}= useCartContext();
 
-  const onAdd = (cantidad) => {
+  const Agregar = (cantidad) => {
     
-    addItem({...item, cantidad})
-    setIsCount(false);
+    AgregarProducto({...producto, cantidad})
+    setAumento(false);
   }
-  console.log(cartList);
+
   return (
     <div className='row'>
       <div className='col-6'>
@@ -37,11 +37,11 @@ const [isCount, setIsCount] = useState(true);
       </div>
       <div className='col-6'>
       <center><p className='Price'>Precio: S/ <span>{Precio}</span></p></center>
-        {isCount ?
-      <ItemCount stock={Stock} initial={1} onAdd={onAdd}/>
+        {Aumento ?
+      <ItemCount stock={Stock} inicial={1} Agregar={Agregar}/>
       :
       <div>
-        <Link to="/"><button onClick={()=>setIsCount(true)}>Seguir comprando</button></Link>
+        <Link to="/"><button onClick={()=>setAumento(true)}>Seguir comprando</button></Link>
         <Link to="/carrito"><button>Terminar compra</button></Link>
         </div>
       }

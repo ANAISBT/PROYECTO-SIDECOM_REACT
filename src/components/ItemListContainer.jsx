@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 const ItemListContainer = () => {
 
-  const [items, setItems] = useState([])
+  const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
   const {categoriaId} = useParams()
 
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
     const queryCollection= collection(db,'items')
     const queryFiltrada = categoriaId ? query(queryCollection, where('Categoria','==',categoriaId)) : queryCollection
     getDocs(queryFiltrada)
-    .then(resp => {setItems(resp.docs.map(item=>({id:item.id, ...item.data()})))})
+    .then(resp => {setProductos(resp.docs.map(item=>({id:item.id, ...item.data()})))})
     .catch(err => console.log(err))
     .finally(() => setLoading(false))
   }, [categoriaId])
@@ -31,7 +31,7 @@ const ItemListContainer = () => {
     {
       loading ? <div>Cargando...</div> :
     
-      <ItemList productos={items} />
+      <ItemList productos={productos} />
     }
     </div>
     </>

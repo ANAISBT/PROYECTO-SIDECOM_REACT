@@ -4,10 +4,10 @@ import Item from './Item'
 
 const ItemList = memo(({productos}) => {
   return(
-    <div className='flex '>
+    <div className='flex'>
         {
-            productos.map((item) => (<>
-            <Item key={item.id} item={item} />
+            productos.map((prod) => (<>
+            <Item key={prod.id} producto={prod} />
             </>))
         }
     </div>

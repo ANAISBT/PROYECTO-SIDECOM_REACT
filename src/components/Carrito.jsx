@@ -14,7 +14,7 @@ const [dataForm, setDataForm] = useState({
    email: '', 
    phone: ''  })
 
-   const {cartList, vaciarCarrito,precioTotal,removeItem} = useCartContext();
+   const {ListaCarrito, vaciarCarrito,precioTotal,removeItem} = useCartContext();
 
   const generarOrden = async(e) => {
     e.preventDefault()
@@ -24,7 +24,7 @@ const [dataForm, setDataForm] = useState({
         phone: dataForm.phone,
         email: dataForm.email
       },
-      items: cartList.map(item => {
+      items: ListaCarrito.map(item => {
         const { id, Nombre:title, Precio } = item
         return { id, title, Precio }
         }),
@@ -49,7 +49,7 @@ const [dataForm, setDataForm] = useState({
         <div>
             <p className="titulo">CARRITO</p>
             {isId ? <p className="Orden">Orden generada con exito, su id es: {isId}</p> : ''}
-            {cartList.length === 0 ? 
+            {ListaCarrito.length === 0 ? 
             <div>
             <p className="NoProductos">No hay productos en el carrito</p> 
             <center><button><Link to='/'>Volver al inicio</Link></button></center>
@@ -66,7 +66,7 @@ const [dataForm, setDataForm] = useState({
               </tr>
             </thead>
               <tbody>
-                {cartList.map((item) => {
+                {ListaCarrito.map((item) => {
                     return (
                         <tr key={item.id}>
                           <td className="flex"><img src={item.Foto} className="card-img-top" alt="" style={{width:200}}/>
@@ -82,7 +82,7 @@ const [dataForm, setDataForm] = useState({
             </table>
             <center><h3>Total: {precioTotal()}</h3>
             <button onClick={vaciarCarrito}>Vaciar Carrito</button></center>
-            <form className="flex" onSubmit={generarOrden}>
+            <form className="flex-column" onSubmit={generarOrden}>
             <input 
                     type="text" 
                     name="name"

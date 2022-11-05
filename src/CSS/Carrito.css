@@ -20,6 +20,14 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.Orden{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 500 ;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 button{
     background-color: #e0b6b6;
     border: none;

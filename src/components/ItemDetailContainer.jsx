@@ -6,17 +6,16 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState({})
+    const [producto, setProducto] = useState({})
     const [loading, setLoading] = useState(true)
     const {ItemId} = useParams()
-    console.log(ItemId);
 
     // para que se reciba un solo producto
   useEffect(() => {
     const db = getFirestore()
     const queryOne= doc(db,'items',ItemId)
     getDoc(queryOne)
-    .then(resp => setItem({id:resp.id, ...resp.data()}))
+    .then(resp => setProducto({id:resp.id, ...resp.data()}))
     .catch(err => console.log(err))
     .finally(() => setLoading(false))
   }, [])
@@ -25,7 +24,7 @@ const ItemDetailContainer = () => {
     <>
     {
         loading ? <div>Cargando...</div> :
-         <ItemDetail item={item} />
+         <ItemDetail producto={producto} />
     }
     </>
   )

@@ -7,40 +7,40 @@ const CartContext = createContext([]);
 
 const CartContextProvider = ({children}) => { 
 
-const [cartList, setCartList] = useState([])
+const [ListaCarrito, setListaCarrito] = useState([])
 
-const addItem = (producto) => {
-     const index = cartList.findIndex((item) => item.id === producto.id);
+const AgregarProducto = (producto) => {
+     const index = ListaCarrito.findIndex((item) => item.id === producto.id);
     
     if(index===-1){
-     setCartList([...cartList,producto]);
+     setListaCarrito([...ListaCarrito,producto]);
 }
 else{
-    const newCartList = [...cartList];
-    newCartList[index].cantidad += producto.cantidad;
-    setCartList([...newCartList]);
+    const newListaCarrito = [...ListaCarrito];
+    newListaCarrito[index].cantidad += producto.cantidad;
+    setListaCarrito([...newListaCarrito]);
 
 }
 }
 
 const vaciarCarrito = () => {
-    setCartList([]);
+    setListaCarrito([]);
 }
 
 const removeItem= (id) => {
-    setCartList( cartList.filter(item => item.id !== id) )
+    setListaCarrito( ListaCarrito.filter(item => item.id !== id) )
 }
 
 
 
 const precioTotal = () => {
-    return parseInt(cartList.reduce((acum, prod) => acum + (prod.cantidad* prod.Precio) , 0))
+    return parseInt(ListaCarrito.reduce((acum, prod) => acum + (prod.cantidad* prod.Precio) , 0))
 }
 
   return (
         <CartContext.Provider value={{
-            cartList,
-            addItem,
+            ListaCarrito,
+            AgregarProducto,
             vaciarCarrito,
             precioTotal,
             removeItem

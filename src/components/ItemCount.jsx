@@ -4,34 +4,34 @@ import React, { useState } from 'react';
 
 import { Button } from 'react-bootstrap';
 
-const ItemCount = ({stock, initial,onAdd}) => {
-    const [count, setCount] = useState(initial);
+const ItemCount = ({stock, inicial,Agregar}) => {
+    const [cantidad, setCantidad] = useState(inicial);
 
-    const handleAdd = () => {
-        if (count < stock) {
-            setCount(count + 1);
+    const Aumento = () => {
+        if (cantidad < stock) {
+            setCantidad(cantidad + 1);
         }
     }
 
-    const handleSubstract = () => {
-        if (count > initial) {
-            setCount(count - 1);
+    const Disminuyo = () => {
+        if (cantidad > inicial) {
+            setCantidad(cantidad- 1);
         }
     }
 
-    const handleonAdd = () => {
-      onAdd(count);
+    const Agrego = () => {
+      Agregar(cantidad);
     }
 
   return <>
   <center>
     <div className="container flex-column ">
       <div className="flex">
-  <Button  onClick={(handleSubstract)}>-</Button>
-        <p>{count}</p>
-      <Button onClick={(handleAdd)}>+</Button>
+  <Button  onClick={(Disminuyo)}>-</Button>
+        <p>{cantidad}</p>
+      <Button onClick={(Aumento)}>+</Button>
       </div>
-      <Button onClick={(handleonAdd)}>Agregar al carrito</Button>
+      <Button onClick={(Agrego)}>Agregar al carrito</Button>
     </div>
     </center>
   </>

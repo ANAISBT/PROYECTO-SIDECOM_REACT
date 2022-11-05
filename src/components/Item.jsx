@@ -4,9 +4,9 @@ import React, { memo } from 'react'
 
 import { Link } from 'react-router-dom'
 
-const Item = memo(({item}) => {
+const Item = memo(({producto}) => {
 
-  const {id, Nombre, Precio, Foto, Categoria} = item;
+  const {id, Nombre, Precio, Foto, Categoria} = producto;
 
   return <>
   
