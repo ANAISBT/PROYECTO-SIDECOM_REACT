@@ -1,14 +1,11 @@
 import "../CSS/ItemCount.css";
 
+import React, { useState } from 'react';
+
 import { Button } from 'react-bootstrap';
-import React from 'react'
-import { useState } from 'react';
 
 const ItemCount = ({stock, initial,onAdd}) => {
     const [count, setCount] = useState(initial);
-    // const [stock, setStock] = useState(5);
-    // const [initial, setInitial] = useState(1);
-    const [final, setFinal] = useState(5);
 
     const handleAdd = () => {
         if (count < stock) {
@@ -27,12 +24,16 @@ const ItemCount = ({stock, initial,onAdd}) => {
     }
 
   return <>
-    <div className="container">
+  <center>
+    <div className="container flex-column ">
+      <div className="flex">
   <Button  onClick={(handleSubstract)}>-</Button>
         <p>{count}</p>
       <Button onClick={(handleAdd)}>+</Button>
+      </div>
       <Button onClick={(handleonAdd)}>Agregar al carrito</Button>
     </div>
+    </center>
   </>
 }
 

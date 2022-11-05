@@ -1,8 +1,7 @@
-import '../CSS/ItemListContainer.css'
+import '../CSS/Item.css'
 
 import React, { memo } from 'react'
 
-import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom'
 
 const Item = memo(({item}) => {
@@ -12,13 +11,13 @@ const Item = memo(({item}) => {
   return <>
   
                         <Link to={`/item/${id}`}>
-                        <div className="card" >
+                        <div className="card " >
                         <div className="card-header">
                           {`${Nombre} - ${Categoria}`}
                           </div>
                           <div className="card-body">
-                          <img src={Foto} className="card-img-top" alt="" style={{width:400}}/>
-                            Precio: S/ {Precio}
+                          <img src={Foto} className="card-img-top" alt="" style={{width:200}}/>
+                          <p className='Precio'>Precio: S/<span>{Precio}</span></p>
                           </div>
                           <div className="card-footer">
                             <button className="btn btn-primary">Detalle del Producto</button>

@@ -1,10 +1,9 @@
-import {addDoc, collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where} from 'firebase/firestore'
-import{useEffect, useState} from 'react'
+import "../CSS/Carrito.css";
 
-import Input from './Input'
-import ItemCount from './ItemCount'
+import React,{useState}from 'react'
+import {addDoc, collection, getFirestore} from 'firebase/firestore'
+
 import { Link } from 'react-router-dom'
-import React from 'react'
 import { useCartContext } from '../context/CartContext'
 
 export default function Carrito () {
@@ -37,18 +36,6 @@ const [dataForm, setDataForm] = useState({
       .then(resp => setIsId(resp.id))
       .catch(err => console.log(err))
       .finally(() => vaciarCarrito())
-
-      //actualizar un documento
-      // const db= getFirestore();
-      // const orderDoc = doc(db,'items','TVOt1ffUh96eV8DZTLqG');
-      // updateDoc(orderDoc,
-      //   {
-      //     Stock: 10
-      //   })
-      // .then(resp => console.log('producto actualizado'))
-      // .catch(err => console.log(err))
-
-  // console.log(orden)
   }
 
   const handleInputChange = (e) => {
@@ -58,34 +45,44 @@ const [dataForm, setDataForm] = useState({
     })
   }
 
-  console.log(dataForm);
     return (
         <div>
-            <h1>Carrito</h1>
-            {isId ? <h2>Orden generada con exito, su id es: {isId}</h2> : ''}
+            <p className="titulo">CARRITO</p>
+            {isId ? <p className="Orden">Orden generada con exito, su id es: {isId}</p> : ''}
             {cartList.length === 0 ? 
             <div>
-            <h2>No hay productos en el carrito</h2> 
-            <Link to='/'><button>Volver al inicio</button></Link>
+            <p className="NoProductos">No hay productos en el carrito</p> 
+            <center><button><Link to='/'>Volver al inicio</Link></button></center>
             </div>
             :
             <>
-            <div>
+            <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+              <tbody>
                 {cartList.map((item) => {
                     return (
-                        <div key={item.id}>
-                            <h3>{item.Nombre}</h3>
-                            <p>{item.Precio}</p>
-                            <p>{item.cantidad}</p>
-                            <button onClick={() => removeItem(item.id)}>X</button>
-                        </div>
+                        <tr key={item.id}>
+                          <td className="flex"><img src={item.Foto} className="card-img-top" alt="" style={{width:200}}/>
+                            <h3>{item.Nombre}</h3></td>
+                            <td><center><p>S/ {item.Precio}</p></center></td>
+                            <td><center><p>{item.cantidad}</p></center></td>
+                            <td><button onClick={() => removeItem(item.id)}>X</button></td>
+                        </tr>
                         
                     )
                 })}
-            </div>
-            <h3>Total: {precioTotal()}</h3>
-            <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-            <form onSubmit={generarOrden}>
+              </tbody>
+            </table>
+            <center><h3>Total: {precioTotal()}</h3>
+            <button onClick={vaciarCarrito}>Vaciar Carrito</button></center>
+            <form className="flex" onSubmit={generarOrden}>
             <input 
                     type="text" 
                     name="name"

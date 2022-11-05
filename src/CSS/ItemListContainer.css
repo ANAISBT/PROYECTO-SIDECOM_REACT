@@ -2,13 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .flex{
     display: flex;
     flex-wrap: wrap;
-}
-
-.card{
-    color:black
+    justify-content: center;
 }

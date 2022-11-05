@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-style: italic ;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.NoProductos{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 500 ;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button{
+    background-color: #e0b6b6;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+form{
+    align-items: center;
+justify-content: center
+}
+
+input{
+    margin: 0px 12px 15px 12px;
+    border-radius: 10px;
+    width: 40%;
+    padding: 10px;
+}
